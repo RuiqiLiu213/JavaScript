@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title || 'Default'%></title>
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<div class="clearfix page-nav">
+		<% if(user) { %>
+		<div class="pull-left nav-username">Hello!</div>
+		<div><%= user || 'Default'%></div>
+		<div class="pull-left"><a href="/post">Post</a></div>
+		<div class="pull-right nav-quit"><a href="/login">Exit</a></div>
+	<% } else { %>
+		<% if(page == 'login') { %>
+			<div class="pull-right nav-register"><a href="/reg">Register</a></div>
+		<% } else { %>
+			<div class="pull-right nav-login"><a href="/login">Log In</a></div>
+		<% } %>
+	<% } %>
+</div>
+			<p class="text-center page-title"><%= title || 'Default'%></p>

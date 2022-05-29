@@ -1,0 +1,25 @@
+<%- include header %>
+        <div class="container">
+            <div class="row">
+                <% arts.forEach(function(art) { %>
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="article-box">
+                            <!-- a href="/detail/<%= art._id %>"-->
+                            <p>
+                                <h3 class="text-center"><%= art.title %></h3>
+                            </p>
+                            <p class="text-center">
+                                <span class="label label-info"><%= art.tag %></span> | 
+                                <span class="create-time">
+                                    <span class="text-bold">Time:</span>
+                                    <%= art.createTime %>
+                                </span>
+                            </p>
+                        </div>
+                        <p class="text-center"><%= art.content %></p>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </body>
+</html>
