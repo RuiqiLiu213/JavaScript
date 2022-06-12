@@ -1,22 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TodoList from './TodoList'
 import uuidv4 from 'uuid/v4'
-//1
+
 const LOCAL_STORAGE_KEY = ''
 
 function App() {
+  // todos: JSON object
   const [todos, setTodos] = useState([])
   const todoNameRef = useRef()
 
+  // show local todos once
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
     if (storedTodos) setTodos(storedTodos)
   }, [])
 
+  // todos change, update local string.
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   }, [todos])
 
+  // update complete status
   function toggleTodo(id) {
     const newTodos = [...todos]
     const todo = newTodos.find(todo => todo.id === id)
@@ -24,6 +28,7 @@ function App() {
     setTodos(newTodos)
   }
 
+  // add one task
   function handleAddTodo(e) {
     const name = todoNameRef.current.value
     if (name === '') return
@@ -33,6 +38,7 @@ function App() {
     todoNameRef.current.value = null
   }
 
+  // clear all
   function handleClearTodos() {
     const newTodos = todos.filter(todo => !todo.complete)
     setTodos(newTodos)
