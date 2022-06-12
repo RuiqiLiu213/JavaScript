@@ -20,7 +20,7 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   }, [todos])
 
-  // update complete status
+  // update complete status, used in checkbox onchange.
   function toggleTodo(id) {
     const newTodos = [...todos]
     const todo = newTodos.find(todo => todo.id === id)
