@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "devStart": "nodemon app.js",
+    "dev": "nodemon app.js",
     "start": "node app.js"
   },
   "dependencies": {
@@ -18,5 +18,9 @@
     "morgan": "~1.7.0",
     "nodemon": "^2.0.16",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "prettier": "^2.7.1"
   }
 }
