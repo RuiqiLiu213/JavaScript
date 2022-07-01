@@ -29,7 +29,18 @@
         
         <script>
             function submitDelete(){
-                document.getElementById('deletePost').submit()
+                Swal.fire({
+                    title: 'Delete this post?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('deletePost').submit()
+                        Swal.fire('success').then(function() {
+                        window.location = "/index";
+                    })
+                    } 
+                })
             }
         </script>
     </body>

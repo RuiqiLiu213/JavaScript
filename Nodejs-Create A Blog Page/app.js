@@ -200,7 +200,6 @@ app.post('/delete/:_id', checkLogin, function (req, res) {
                 }
                 if (art) {
                     console.log('Delete Successfully');
-                    res.redirect('/index');
                 }
             });
         }
